@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="fi4-Zj-VwZ">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dbg-FZ-cHv" customClass="TabBarViewController" customModule="Anxiolytic" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8rd-If-L5O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="H88-Io-BuR" kind="relationship" relationship="viewControllers" id="Rdo-9h-eSc"/>
+                        <segue destination="OuU-wT-cPM" kind="relationship" relationship="viewControllers" id="M05-mU-cYw"/>
+                        <segue destination="R9X-2c-4Hm" kind="relationship" relationship="viewControllers" id="nLD-1r-JQK"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ruz-eA-593" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1174" y="-85"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="YHr-Fx-KoT">
+            <objects>
+                <navigationController id="H88-Io-BuR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="house" catalog="system" id="qeI-fN-gYt"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nxX-zb-zZz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nZM-Hn-dLQ" kind="relationship" relationship="rootViewController" id="Xai-iK-PQg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ml6-GO-SSd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1914" y="679"/>
+        </scene>
+        <!--Tools View Controller-->
+        <scene sceneID="ZWj-KT-qtX">
+            <objects>
+                <viewController id="TCe-kU-gQo" customClass="ToolsViewController" customModule="Anxiolytic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jes-G8-ZbE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Dg5-eb-Reb"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LZT-Uy-xak"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ljx-vJ-g7a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1105" y="1454"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="kpJ-Vu-e6k">
+            <objects>
+                <navigationController id="R9X-2c-4Hm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="tabSettings" id="agc-y5-jOb"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bhr-ZX-CyA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ABO-Cf-4hs" kind="relationship" relationship="rootViewController" id="bRS-K5-vce"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KuQ-4T-31d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-425" y="679"/>
+        </scene>
+        <!--Dashboard View Controller-->
+        <scene sceneID="TFv-jE-DLu">
+            <objects>
+                <viewController id="nZM-Hn-dLQ" customClass="DashboardViewController" customModule="Anxiolytic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jNG-Wh-vJf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4b7-nH-7C3"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JoN-bY-xPk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vA6-6b-Tie" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1914" y="1455"/>
+        </scene>
+        <!--Tools-->
+        <scene sceneID="9MH-M8-beh">
+            <objects>
+                <navigationController id="OuU-wT-cPM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tools" image="checklist" catalog="system" id="5Zo-78-dkg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JHB-ny-AY6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TCe-kU-gQo" kind="relationship" relationship="rootViewController" id="e8c-HL-0Wd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Bv-Wx-R0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1175" y="679"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="T1m-f1-9wB">
+            <objects>
+                <viewController id="ABO-Cf-4hs" customClass="SettingsViewController" customModule="Anxiolytic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ras-Jq-9FF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Cpp-iz-Up3"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="You-am-gPV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mbj-Xb-x6f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-316" y="1453"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checklist" catalog="system" width="128" height="105"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="tabSettings" width="32" height="32"/>
+    </resources>
+</document>
