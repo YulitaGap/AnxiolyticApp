@@ -11,6 +11,8 @@ protocol LogInViewControllerOutput {
 
     func logInButtonTapped(email: String, password: String)
 
+    func noCredentialsEntered()
+
     /// The user's input changed and therefore the model
     /// needs an update (e.g. for validation).
     ///
@@ -44,6 +46,7 @@ final class LogInViewController: UIViewController {
         emailTextField.layer.cornerRadius = 10.0
         emailTextField.clipsToBounds = false
         emailTextField.textColor = .white
+        emailTextField.font = UIFont.vmCircularYell16
         emailTextField.attributedPlaceholder = NSAttributedString(
             string: "Email adress",
             attributes: [NSAttributedString.Key.foregroundColor: Attributes.Colors.accentBlueGrey, NSAttributedString.Key.font: UIFont.vmCircularYell16]
@@ -120,7 +123,7 @@ final class LogInViewController: UIViewController {
     @objc private func didTapButton() {
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else {
-                  print("missing")
+                  self.output.noCredentialsEntered()
                   return
               }
 
@@ -173,7 +176,7 @@ extension LogInViewController: LogInPresenterOutput {
         // TODO: Update UI
     }
 
-    func showLoginAlert(alert: UIAlertController) {
+    func showAlert(alert: UIAlertController) {
         present(alert, animated: true)
     }
 }

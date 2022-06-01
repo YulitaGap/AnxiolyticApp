@@ -11,6 +11,8 @@ protocol RegisterViewControllerOutput {
 
     func registerButtonTapped(email: String, password: String)
 
+    func noCredentialsEntered()
+
     /// The user's input changed and therefore the model
     /// needs an update (e.g. for validation).
     ///
@@ -44,6 +46,7 @@ final class RegisterViewController: UIViewController {
         emailTextField.layer.cornerRadius = 10.0
         emailTextField.clipsToBounds = false
         emailTextField.textColor = .white
+        emailTextField.font = UIFont.vmCircularYell16
         emailTextField.attributedPlaceholder = NSAttributedString(
             string: "Email adress",
             attributes: [NSAttributedString.Key.foregroundColor: Attributes.Colors.accentBlueGrey, NSAttributedString.Key.font: UIFont.vmCircularYell16]
@@ -59,6 +62,7 @@ final class RegisterViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 10.0
         passwordTextField.clipsToBounds = false
         passwordTextField.textColor = .white
+        passwordTextField.font = UIFont.vmCircularYell16
         passwordTextField.attributedPlaceholder = NSAttributedString(
             string: "Email adress",
             attributes: [NSAttributedString.Key.foregroundColor: Attributes.Colors.accentBlueGrey, NSAttributedString.Key.font: UIFont.vmCircularYell16]
@@ -119,7 +123,7 @@ final class RegisterViewController: UIViewController {
     @objc private func didTapButton() {
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else {
-                  print("missing")
+                  self.output.noCredentialsEntered()
                   return
               }
 
@@ -169,5 +173,9 @@ extension RegisterViewController: RegisterPresenterOutput {
 
     func update(with viewModel: RegisterViewModel) {
         // TODO: Update UI
+    }
+
+    func showAlert(alert: UIAlertController) {
+        present(alert, animated: true)
     }
 }

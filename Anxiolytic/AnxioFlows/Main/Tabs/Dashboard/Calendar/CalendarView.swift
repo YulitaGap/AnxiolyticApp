@@ -61,22 +61,22 @@ class CalendarView: UIView {
             headerView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
             headerView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 85)
+            headerView.heightAnchor.constraint(equalToConstant: 65)
         ]
 
         NSLayoutConstraint.activate(constraints)
     }
 
     private func setUpFooter() {
-        self.addSubview(footerView)
-        let constraints = [
-            footerView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
-            footerView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
-            footerView.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
-            footerView.heightAnchor.constraint(equalToConstant: 60)
-        ]
-
-        NSLayoutConstraint.activate(constraints)
+//        self.addSubview(footerView)
+//        let constraints = [
+//            footerView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
+//            footerView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+//            footerView.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
+//            footerView.heightAnchor.constraint(equalToConstant: 60)
+//        ]
+//
+//        NSLayoutConstraint.activate(constraints)
     }
 
     private func setUpCollection() {
@@ -85,9 +85,10 @@ class CalendarView: UIView {
         let constraints = [
           collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
           collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-          collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-          collectionView.topAnchor.constraint(equalTo: self.topAnchor)
+          collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+          collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ]
+//        collectionView.heightAnchor.constraint(equalToConstant: 100).isActive = true
 
         NSLayoutConstraint.activate(constraints)
     }

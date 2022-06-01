@@ -1,5 +1,5 @@
 import UIKit
-
+import FirebaseAuth
 /**
  Data that will be directed towards the `SettingsWorker` coming 
  from the `SettingsInteractor`.
@@ -9,7 +9,8 @@ protocol SettingsWorkerInput: AnyObject {
     // swiftlint:disable:next implicitly_unwrapped_optional
     var output: SettingsWorkerOutput! { get set }
 
-    func doSomeWork()
+    func logOutUser()
+
 }
 
 /**
@@ -18,8 +19,9 @@ protocol SettingsWorkerInput: AnyObject {
  from the worker.
  */
 protocol SettingsWorkerOutput: AnyObject {
+    func didFailedLogOut(error: Error)
 
-    func didSomeWork()
+    func didLoggedOut()
 }
 
 /**
@@ -45,7 +47,13 @@ class SettingsWorker: SettingsWorkerInput {
         }
     }
 
-    func doSomeWork() {
-        output.didSomeWork()
+    func logOutUser() {
+        do {
+           try Auth.auth().signOut()
+            output.didLoggedOut()
+         } catch let logoutError {
+             output.didFailedLogOut(error: logoutError)
+         }
     }
+
 }

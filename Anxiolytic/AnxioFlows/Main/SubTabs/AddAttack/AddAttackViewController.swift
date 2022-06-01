@@ -1,12 +1,12 @@
 import UIKit
 
 /**
-  Data that will be directed out of the `ToolsViewController`
-  to the  `ToolsInteractor`.
+  Data that will be directed out of the `AddAttackViewController`
+  to the  `AddAttackInteractor`.
  */
-protocol ToolsViewControllerOutput {
+protocol AddAttackViewControllerOutput {
 
-    /// The `ToolsViewController`'s view finished loading.
+    /// The `AddAttackViewController`'s view finished loading.
     func viewLoaded()
 
     /// The user's input changed and therefore the model
@@ -14,14 +14,17 @@ protocol ToolsViewControllerOutput {
     ///
     /// - Parameter viewModel: The model representing the
     ///                    current state of the userinterface.
-    func viewContentUpdated(with viewModel: ToolsViewModel)
+    func viewContentUpdated(with viewModel: AddAttackViewModel)
 }
 
 /**
-  The `ToolsViewController` communicates with the `ToolsInteractor,
-  and gets a response back from the `ToolsPresenter`.
+  The `AddAttackViewController` communicates with the `AddAttackInteractor,
+  and gets a response back from the `AddAttackPresenter`.
  */
-final class ToolsViewController: UIViewController {
+final class AddAttackViewController: UIViewController {
+
+    // swiftlint:disable:next implicitly_unwrapped_optional
+    var output: AddAttackViewControllerOutput!
 
     private var headerView: UIView = {
         let view = UIView(frame: CGRect())
@@ -35,36 +38,31 @@ final class ToolsViewController: UIViewController {
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Tools"
-        label.font = .vmCircularYell50
+        label.text = "How do you feel?"
+        label.font = .vmCircularYell36
         label.textColor = .white
         return label
     }()
 
     private var menuBackgroundView: UIView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "tools.png")
-        view.scalesLargeContentImage = true
+        let view = UIView(frame: CGRect())
         view.clipsToBounds = true
         view.layer.cornerRadius = 15
         view.backgroundColor = Attributes.Colors.truewhite
         return view
     }()
 
-    // swiftlint:disable:next implicitly_unwrapped_optional
-    var output: ToolsViewControllerOutput!
-
     // MARK: - Initializers
 
-    /// This will initialise the `ToolsViewController` using a decoder object.
+    /// This will initialise the `AddAttackViewController` using a decoder object.
     /// To configure the relations in VIP, we'll use the default configure
-    /// implementation using the `ToolsConfigurator`.
+    /// implementation using the `AddAttackConfigurator`.
     ///
     /// - Parameter aDecoder: An unarchiver object.
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        ToolsConfigurator.configure(viewController: self)
+        AddAttackConfigurator.configure(viewController: self)
     }
 
     // MARK: - View lifecycle
@@ -78,26 +76,27 @@ final class ToolsViewController: UIViewController {
 
     private func configureAppearance() {
         view.backgroundColor = .white
+        view.backgroundColor = .white
         view.addSubview(headerView)
         view.addSubview(headerLabel)
         view.addSubview(menuBackgroundView)
         layoutUIElements()
-
     }
 
     private func layoutUIElements() {
         headerView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height / 3)
         headerLabel.frame = CGRect(x: 0, y: headerView.frame.height / 4, width: view.frame.size.width, height: headerView.frame.height / 4)
-        menuBackgroundView.frame = CGRect(x: 28, y: headerLabel.frame.maxY + 10, width: view.frame.size.width - 56, height: view.frame.size.height - 250)
+        menuBackgroundView.frame = CGRect(x: 24, y: headerLabel.frame.maxY + 10, width: view.frame.size.width - 48, height: 3 * (view.frame.size.height / 4))
     }
 }
 
-// MARK: - ToolsPresenterOutput
+// MARK: - AddAttackPresenterOutput
 
-extension ToolsViewController: ToolsPresenterOutput {
+extension AddAttackViewController: AddAttackPresenterOutput {
 
     // MARK: - Display logic
 
-    func update(with viewModel: ToolsViewModel) {
+    func update(with viewModel: AddAttackViewModel) {
+        // TODO: Update UI
     }
 }

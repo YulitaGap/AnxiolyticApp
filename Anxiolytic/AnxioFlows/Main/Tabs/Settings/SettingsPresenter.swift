@@ -11,6 +11,8 @@ protocol SettingsPresenterOutput: AnyObject {
     ///
     /// - parameter viewModel: View model which will be applied. 
     func update(with viewModel: SettingsViewModel)
+
+    func showAlert(alert: UIAlertController)
 }
 
 /**
@@ -50,5 +52,20 @@ extension SettingsPresenter: SettingsInteractorOutput {
 
     func update(with viewModel: SettingsViewModel) {
         output.update(with: viewModel)
+    }
+
+    func presentLogOutError(error: Error) {
+        let alert = UIAlertController(
+            title: "Log out error",
+            message: error.localizedDescription,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in }))
+
+        output.showAlert(alert: alert)
+    }
+
+    func presentLogOut() {
+        router.navigateToWelcomeScreen()
     }
 }

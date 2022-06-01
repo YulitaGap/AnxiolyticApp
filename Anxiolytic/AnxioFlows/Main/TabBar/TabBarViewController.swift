@@ -1,5 +1,5 @@
 import UIKit
-
+import FirebaseAuth
 /**
   Data that will be directed out of the `TabBarViewController`
   to the  `TabBarInteractor`.
@@ -25,6 +25,8 @@ final class TabBarViewController: UITabBarController {
 
     // swiftlint:disable:next implicitly_unwrapped_optional
     var output: TabBarViewControllerOutput!
+
+    var user: User?
 
     // MARK: - Initializers
 

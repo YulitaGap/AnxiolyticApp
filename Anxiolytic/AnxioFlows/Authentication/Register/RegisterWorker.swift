@@ -19,9 +19,9 @@ protocol RegisterWorkerInput: AnyObject {
  from the worker.
  */
 protocol RegisterWorkerOutput: AnyObject {
-
-    func didFailedRegisterUser()
     func didRegisterUser()
+
+    func didFailedRegisterUser(error: Error)
 }
 
 /**
@@ -48,11 +48,12 @@ class RegisterWorker: RegisterWorkerInput {
     }
 
     func attemptRegister(email: String, password: String) {
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { _, error in guard error == nil else {
-                self.output.didFailedRegisterUser()
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { _, error in
+            guard let authError = error  else {
+                self.output.didRegisterUser()
                 return
             }
-            self.output.didRegisterUser()
+            self.output.didFailedRegisterUser(error: authError)
         })
     }
 }

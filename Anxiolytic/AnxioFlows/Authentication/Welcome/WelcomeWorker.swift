@@ -1,5 +1,5 @@
 import UIKit
-
+import FirebaseAuth
 /**
  Data that will be directed towards the `WelcomeWorker` coming 
  from the `WelcomeInteractor`.
@@ -9,7 +9,8 @@ protocol WelcomeWorkerInput: AnyObject {
     // swiftlint:disable:next implicitly_unwrapped_optional
     var output: WelcomeWorkerOutput! { get set }
 
-    func doSomeWork()
+    func checkIfLogged()
+
 }
 
 /**
@@ -19,7 +20,9 @@ protocol WelcomeWorkerInput: AnyObject {
  */
 protocol WelcomeWorkerOutput: AnyObject {
 
-    func didSomeWork()
+    func foundLoggedUser(user: User)
+
+    func noLoggedUserFound()
 }
 
 /**
@@ -45,7 +48,14 @@ class WelcomeWorker: WelcomeWorkerInput {
         }
     }
 
-    func doSomeWork() {
-        output.didSomeWork()
+    func checkIfLogged() {
+        FirebaseAuth.Auth.auth().addStateDidChangeListener { [self] _, user in
+            guard let user = user else {
+                // No user is signed in.
+                self.output.noLoggedUserFound()
+                return
+            }
+            self.output.foundLoggedUser(user: user)
+        }
     }
 }

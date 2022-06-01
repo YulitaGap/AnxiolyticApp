@@ -11,6 +11,10 @@ protocol RegisterInteractorOutput {
 
     func presentDashboard()
 
+    func presentRegistrationError(error: Error)
+
+    func presentMissingCredsError()
+
     /// Triggers an update with the new view model.
     ///
     /// - parameter viewModel: View model which will be applied. 
@@ -67,9 +71,17 @@ extension RegisterInteractor: RegisterViewControllerOutput {
     func viewContentUpdated(with viewModel: RegisterViewModel) {
         output.update(with: viewModel)
     }
+
+    func noCredentialsEntered() {
+        output.presentMissingCredsError()
+    }
 }
 
 extension RegisterInteractor: RegisterWorkerOutput {
+    func didFailedRegisterUser(error: Error) {
+        self.output.presentRegistrationError(error: error)
+    }
+
     func didRegisterUser() {
         output.presentDashboard()
     }
