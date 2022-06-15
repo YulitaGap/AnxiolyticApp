@@ -7,7 +7,7 @@ protocol DashboardRouterProtocol: AnyObject {
 
     var viewController: DashboardViewController? { get }
 
-    func navigateToSomewhere()
+    func navigateToCreateAttack()
 }
 
 /**
@@ -35,7 +35,13 @@ extension DashboardRouter: DashboardRouterProtocol {
 
     // MARK: - Navigation
 
-    func navigateToSomewhere() {
-      // TODO: Navigate to other view controller
+    func navigateToCreateAttack() {
+        let storyboard = UIStoryboard(name: "AddAttack", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "AddAttack")
+        viewController?.navigationController?.navigationBar.barStyle = UIBarStyle.black
+        viewController?.navigationController?.navigationBar.tintColor = UIColor.white
+        let attributes = [NSAttributedString.Key.font: UIFont.vmCircularYell16]
+        viewController?.navigationItem.backBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
+        viewController?.navigationController?.pushViewController(controller, animated: true)
     }
 }
