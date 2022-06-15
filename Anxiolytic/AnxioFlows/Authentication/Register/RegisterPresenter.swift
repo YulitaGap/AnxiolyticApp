@@ -11,6 +11,8 @@ protocol RegisterPresenterOutput: AnyObject {
     ///
     /// - parameter viewModel: View model which will be applied. 
     func update(with viewModel: RegisterViewModel)
+
+    func showAlert(alert: UIAlertController)
 }
 
 /**
@@ -41,6 +43,7 @@ final class RegisterPresenter {
 // MARK: - RegisterInteractorOutput
 
 extension RegisterPresenter: RegisterInteractorOutput {
+
     // MARK: - Presentation logic
 
     func presentUpdateAfterLoading() {
@@ -54,5 +57,27 @@ extension RegisterPresenter: RegisterInteractorOutput {
 
     func update(with viewModel: RegisterViewModel) {
         output.update(with: viewModel)
+    }
+
+    func presentRegistrationError(error: Error) {
+        let alert = UIAlertController(
+            title: "Registration error",
+            message: error.localizedDescription,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in }))
+
+        output.showAlert(alert: alert)
+    }
+
+    func presentMissingCredsError() {
+        let alert = UIAlertController(
+            title: "Missing credentials",
+            message: "Email and password fields can not be empty. Please provide valid credentials. ",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in }))
+
+        output.showAlert(alert: alert)
     }
 }

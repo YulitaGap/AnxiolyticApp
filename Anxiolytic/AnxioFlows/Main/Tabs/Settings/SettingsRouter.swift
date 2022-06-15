@@ -7,7 +7,7 @@ protocol SettingsRouterProtocol: AnyObject {
 
     var viewController: SettingsViewController? { get }
 
-    func navigateToSomewhere()
+    func navigateToWelcomeScreen()
 }
 
 /**
@@ -33,9 +33,16 @@ final class SettingsRouter {
 
 extension SettingsRouter: SettingsRouterProtocol {
 
+
     // MARK: - Navigation
 
-    func navigateToSomewhere() {
-      // TODO: Navigate to other view controller
+    func navigateToWelcomeScreen() {
+        weak var pvc = viewController?.presentingViewController
+        viewController?.dismiss(animated: true, completion: {
+            let storyboard = UIStoryboard(name: "Welcome", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "Welcome")
+            controller.modalPresentationStyle = .fullScreen
+            pvc?.present(controller, animated: true, completion: nil)
+        })
     }
 }

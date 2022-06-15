@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 /**
   All the methods used for routing are kept under this protocol.
@@ -10,6 +11,8 @@ protocol WelcomeRouterProtocol: AnyObject {
     func navigateToLogIn()
 
     func navigateToRegister()
+
+    func navigateToDashboard(user: User)
 }
 
 /**
@@ -46,6 +49,14 @@ extension WelcomeRouter: WelcomeRouterProtocol {
     func navigateToRegister() {
         let storyboard = UIStoryboard(name: "Register", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "RegisterViewController")
+        viewController?.present(controller, animated: true, completion: nil)
+    }
+
+    func navigateToDashboard(user: User) {
+        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+        controller.modalPresentationStyle = .fullScreen
+        controller.user = user
         viewController?.present(controller, animated: true, completion: nil)
     }
 }

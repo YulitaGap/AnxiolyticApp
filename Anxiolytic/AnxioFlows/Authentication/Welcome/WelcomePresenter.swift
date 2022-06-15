@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 /**
   Data that will be directed out of the `WelcomePresenter` to the
@@ -58,5 +59,9 @@ extension WelcomePresenter: WelcomeInteractorOutput {
 
     func presentRegistrationFlow() {
         router.navigateToRegister()
+    }
+
+    func presentDashboardForLogged(user: User) {
+        router.navigateToDashboard(user: user)
     }
 }

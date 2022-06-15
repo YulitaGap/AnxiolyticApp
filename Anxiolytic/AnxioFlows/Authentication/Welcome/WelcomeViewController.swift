@@ -13,6 +13,8 @@ protocol WelcomeViewControllerOutput {
 
     func registerButtonTapped()
 
+    func checkIfLogged()
+
     /// The user's input changed and therefore the model
     /// needs an update (e.g. for validation).
     ///
@@ -93,6 +95,12 @@ final class WelcomeViewController: UIViewController {
     }
 
     // MARK: - View lifecycle
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        output.checkIfLogged()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

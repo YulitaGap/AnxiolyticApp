@@ -9,6 +9,8 @@ protocol DashboardInteractorOutput {
     /// Updates the view controller after the view is loaded.
     func presentUpdateAfterLoading()
 
+    func presentAddAttack()
+
     /// Triggers an update with the new view model.
     ///
     /// - parameter viewModel: View model which will be applied. 
@@ -68,6 +70,10 @@ extension DashboardInteractor: DashboardViewControllerOutput {
 
     func viewContentUpdated(with viewModel: DashboardViewModel) {
         output.update(with: viewModel)
+    }
+
+    func addButtonTapped() {
+        output.presentAddAttack()
     }
 }
 

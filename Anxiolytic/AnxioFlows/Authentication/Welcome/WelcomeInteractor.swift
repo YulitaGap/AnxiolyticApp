@@ -1,5 +1,5 @@
 import UIKit
-
+import FirebaseAuth
 /**
   Data that will be directed out of the `WelcomeInteractor`
   to the `WelcomePresenter`.
@@ -12,6 +12,8 @@ protocol WelcomeInteractorOutput {
     func presentLogInFlow()
 
     func presentRegistrationFlow()
+
+    func presentDashboardForLogged(user: User)
 
     /// Triggers an update with the new view model.
     ///
@@ -57,7 +59,6 @@ final class WelcomeInteractor {
 
 extension WelcomeInteractor: WelcomeViewControllerOutput {
     // MARK: - Business logic
-
     func viewLoaded() {
         output.presentUpdateAfterLoading()
     }
@@ -73,11 +74,20 @@ extension WelcomeInteractor: WelcomeViewControllerOutput {
     func registerButtonTapped() {
         output.presentRegistrationFlow()
     }
+
+    func checkIfLogged() {
+        worker.checkIfLogged()
+    }
 }
 
 extension WelcomeInteractor: WelcomeWorkerOutput {
 
-    func didSomeWork() {
-        // TODO: Fill with content
+    func noLoggedUserFound() {
+
+    }
+
+
+    func foundLoggedUser(user: User) {
+        output.presentDashboardForLogged(user: user)
     }
 }

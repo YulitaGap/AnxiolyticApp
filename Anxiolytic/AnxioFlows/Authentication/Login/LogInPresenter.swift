@@ -12,7 +12,7 @@ protocol LogInPresenterOutput: AnyObject {
     /// - parameter viewModel: View model which will be applied. 
     func update(with viewModel: LogInViewModel)
 
-    func showLoginAlert(alert: UIAlertController)
+    func showAlert(alert: UIAlertController)
 }
 
 /**
@@ -43,7 +43,6 @@ final class LogInPresenter {
 // MARK: - LogInInteractorOutput
 
 extension LogInPresenter: LogInInteractorOutput {
-
     // MARK: - Presentation logic
 
     func presentUpdateAfterLoading() {
@@ -56,11 +55,15 @@ extension LogInPresenter: LogInInteractorOutput {
     }
 
     func presentCreateNewAccount() {
-        let alert = UIAlertController(title: "Create account", message: "You are not registered yet. Would you like to create an account?", preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Create account",
+            message: "There is no account with provided credentials. Would you like to register new account?",
+            preferredStyle: .alert
+        )
         alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { _ in self.presentRegisterScreen() }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in }))
 
-        output.showLoginAlert(alert: alert)
+        output.showAlert(alert: alert)
     }
 
     func presentDashboardForLoggedUser() {
@@ -69,5 +72,27 @@ extension LogInPresenter: LogInInteractorOutput {
 
     func presentRegisterScreen() {
         router.navigateToRegisterScreen()
+    }
+
+    func presentMissingCredsError() {
+        let alert = UIAlertController(
+            title: "Missing credentials",
+            message: "Email and password fields can not be empty. Please provide valid credentials. ",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in }))
+
+        output.showAlert(alert: alert)
+    }
+
+    func presentAuthErrorAlert(error: Error) {
+        let alert = UIAlertController(
+            title: "Authentication error",
+            message: error.localizedDescription,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in }))
+
+        output.showAlert(alert: alert)
     }
 }

@@ -22,7 +22,7 @@ protocol LogInWorkerOutput: AnyObject {
 
     func didLoggedInUser()
 
-    func didNotLoggedInUser()
+    func didFailedLogginUser(error: Error)
 }
 
 /**
@@ -50,11 +50,12 @@ class LogInWorker: LogInWorkerInput {
 
     func attemptSignIn(email: String, password: String) {
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { _, error in
-            guard error == nil else {
-                self.output.didNotLoggedInUser()
+            guard let authError = error  else {
+                self.output.didLoggedInUser()
                 return
             }
-            self.output.didLoggedInUser()
+            self.output.didFailedLogginUser(error: authError)
+
         })
     }
 }

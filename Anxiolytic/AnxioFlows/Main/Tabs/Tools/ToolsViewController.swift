@@ -23,6 +23,34 @@ protocol ToolsViewControllerOutput {
  */
 final class ToolsViewController: UIViewController {
 
+    private var headerView: UIView = {
+        let view = UIView(frame: CGRect())
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 15
+        view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        view.backgroundColor = Attributes.Colors.blueGrey
+        return view
+    }()
+
+    private let headerLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.text = "Tools"
+        label.font = .vmCircularYell50
+        label.textColor = .white
+        return label
+    }()
+
+    private var menuBackgroundView: UIView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "tools.png")
+        view.scalesLargeContentImage = true
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 15
+        view.backgroundColor = Attributes.Colors.truewhite
+        return view
+    }()
+
     // swiftlint:disable:next implicitly_unwrapped_optional
     var output: ToolsViewControllerOutput!
 
@@ -44,7 +72,23 @@ final class ToolsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureAppearance()
         output.viewLoaded()
+    }
+
+    private func configureAppearance() {
+        view.backgroundColor = .white
+        view.addSubview(headerView)
+        view.addSubview(headerLabel)
+        view.addSubview(menuBackgroundView)
+        layoutUIElements()
+
+    }
+
+    private func layoutUIElements() {
+        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height / 3)
+        headerLabel.frame = CGRect(x: 0, y: headerView.frame.height / 4, width: view.frame.size.width, height: headerView.frame.height / 4)
+        menuBackgroundView.frame = CGRect(x: 28, y: headerLabel.frame.maxY + 10, width: view.frame.size.width - 56, height: view.frame.size.height - 250)
     }
 }
 
@@ -55,6 +99,5 @@ extension ToolsViewController: ToolsPresenterOutput {
     // MARK: - Display logic
 
     func update(with viewModel: ToolsViewModel) {
-        view.backgroundColor = viewModel.backgroundColour
     }
 }

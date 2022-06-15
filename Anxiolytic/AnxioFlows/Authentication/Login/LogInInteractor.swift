@@ -13,6 +13,10 @@ protocol LogInInteractorOutput {
 
     func presentDashboardForLoggedUser()
 
+    func presentMissingCredsError()
+
+    func presentAuthErrorAlert(error: Error)
+
     /// Triggers an update with the new view model.
     ///
     /// - parameter viewModel: View model which will be applied. 
@@ -56,10 +60,6 @@ final class LogInInteractor {
 // MARK: - LogInViewControllerOutput
 
 extension LogInInteractor: LogInViewControllerOutput {
-    func logInButtonTapped(email: String, password: String) {
-        worker.attemptSignIn(email: email, password: password)
-    }
-
     // MARK: - Business logic
 
     func viewLoaded() {
@@ -69,10 +69,26 @@ extension LogInInteractor: LogInViewControllerOutput {
     func viewContentUpdated(with viewModel: LogInViewModel) {
         output.update(with: viewModel)
     }
+
+    func noCredentialsEntered() {
+        output.presentMissingCredsError()
+    }
+
+    func logInButtonTapped(email: String, password: String) {
+        worker.attemptSignIn(email: email, password: password)
+    }
 }
 
 extension LogInInteractor: LogInWorkerOutput {
-    func didNotLoggedInUser() {
+    func didFailedLogginUser(error: Error) {
+        if error.localizedDescription.contains("There is no user record corresponding to this identifier") {
+            self.output.presentCreateNewAccount()
+            return
+        }
+        self.output.presentAuthErrorAlert(error: error)
+    }
+
+    func didFailedLogginUser() {
         self.output.presentCreateNewAccount()
     }
 

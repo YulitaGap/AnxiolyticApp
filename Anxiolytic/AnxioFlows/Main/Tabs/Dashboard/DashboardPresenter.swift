@@ -42,7 +42,6 @@ final class DashboardPresenter {
 // MARK: - DashboardInteractorOutput
 
 extension DashboardPresenter: DashboardInteractorOutput {
-
     // MARK: - Presentation logic
 
     func presentUpdateAfterLoading() {
@@ -56,5 +55,9 @@ extension DashboardPresenter: DashboardInteractorOutput {
 
     func provideBaseDate() -> Date {
         return viewModel.baseDate
+    }
+
+    func presentAddAttack() {
+        router.navigateToCreateAttack()
     }
 }

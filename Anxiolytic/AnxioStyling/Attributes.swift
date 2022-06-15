@@ -27,6 +27,7 @@ public struct Attributes {
     /// Struct defining all available fonts.
     public struct Fonts {
         public static let vmCircularYell50 = UIFont(name: "VMCircularYell-Black", size: 50)
+        public static let vmCircularYell36 = UIFont(name: "VMCircularYell-Black", size: 24)
         public static let vmCircularYell24 = UIFont(name: "VMCircularYell-Black", size: 24)
         public static let vmCircularYell16 = UIFont(name: "VMCircularYell-Black", size: 16)
         public static let vmCircularChat24 = UIFont(name: "VMCircularChat-Book", size: 24)

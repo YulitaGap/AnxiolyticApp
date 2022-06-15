@@ -9,6 +9,10 @@ protocol SettingsInteractorOutput {
     /// Updates the view controller after the view is loaded.
     func presentUpdateAfterLoading()
 
+    func presentLogOutError(error: Error)
+
+    func presentLogOut()
+
     /// Triggers an update with the new view model.
     ///
     /// - parameter viewModel: View model which will be applied. 
@@ -52,7 +56,6 @@ final class SettingsInteractor {
 // MARK: - SettingsViewControllerOutput
 
 extension SettingsInteractor: SettingsViewControllerOutput {
-
     // MARK: - Business logic
 
     func viewLoaded() {
@@ -62,11 +65,18 @@ extension SettingsInteractor: SettingsViewControllerOutput {
     func viewContentUpdated(with viewModel: SettingsViewModel) {
         output.update(with: viewModel)
     }
+
+    func logOutButtonTapped() {
+        worker.logOutUser()
+    }
 }
 
 extension SettingsInteractor: SettingsWorkerOutput {
+    func didFailedLogOut(error: Error) {
+        output.presentLogOutError(error: error)
+    }
 
-    func didSomeWork() {
-        // TODO: Fill with content
+    func didLoggedOut() {
+        output.presentLogOut()
     }
 }

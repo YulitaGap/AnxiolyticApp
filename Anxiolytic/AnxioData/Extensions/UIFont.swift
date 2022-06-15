@@ -7,6 +7,10 @@ extension UIFont {
       return Attributes.Fonts.vmCircularYell50 ?? .systemFont(ofSize: 50)
     }
 
+    class var vmCircularYell36: UIFont {
+      return Attributes.Fonts.vmCircularYell36 ?? .systemFont(ofSize: 36)
+    }
+
     class var vmCircularYell24: UIFont {
         return Attributes.Fonts.vmCircularYell24 ?? .systemFont(ofSize: 24)
     }
