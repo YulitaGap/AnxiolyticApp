@@ -54,6 +54,7 @@ final class SettingsViewController: UIViewController {
     }()
 
     private let registerButton: UIButton = {
+    private let logOutButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = Attributes.Colors.accentBlueGrey
         button.setTitleColor(.white, for: .normal)
@@ -98,6 +99,9 @@ final class SettingsViewController: UIViewController {
         view.addSubview(registerButton)
 
         registerButton.addTarget(self, action: #selector(didTapLogOutButton), for: .touchUpInside)
+        view.addSubview(logOutButton)
+
+        logOutButton.addTarget(self, action: #selector(didTapLogOutButton), for: .touchUpInside)
         layoutUIElements()
     }
 
@@ -106,6 +110,7 @@ final class SettingsViewController: UIViewController {
         headerLabel.frame = CGRect(x: 0, y: headerView.frame.height / 4, width: view.frame.size.width, height: headerView.frame.height / 4)
         menuBackgroundView.frame = CGRect(x: 28, y: headerLabel.frame.maxY + 10, width: view.frame.size.width - 56, height: view.frame.size.height - 250)
         registerButton.frame = CGRect(
+        logOutButton.frame = CGRect(
             x: menuBackgroundView.frame.minX + 20,
             y: 450,
             width: menuBackgroundView.frame.width - 40,

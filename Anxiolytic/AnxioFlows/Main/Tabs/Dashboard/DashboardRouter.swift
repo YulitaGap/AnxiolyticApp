@@ -40,6 +40,8 @@ extension DashboardRouter: DashboardRouterProtocol {
         let controller = storyboard.instantiateViewController(withIdentifier: "AddAttack")
         viewController?.navigationController?.navigationBar.barStyle = UIBarStyle.black
         viewController?.navigationController?.navigationBar.tintColor = UIColor.white
+        let attributes = [NSAttributedString.Key.font: UIFont.vmCircularYell16]
+        viewController?.navigationItem.backBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
         viewController?.navigationController?.pushViewController(controller, animated: true)
     }
 }

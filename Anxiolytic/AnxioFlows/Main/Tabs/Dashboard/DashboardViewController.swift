@@ -129,6 +129,16 @@ final class DashboardViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(DashboardViewController.proceedToAttackTracking))
         imageView.addGestureRecognizer(tap)
         imageView.isUserInteractionEnabled = true
+
+        let trackerView = TrackerView()
+        trackerView.delegate = self
+        menuBackgroundView.addArrangedSubview(trackerView)
+
+        trackerView.topAnchor.constraint(equalTo: menuBackgroundView.topAnchor, constant: 20).isActive = true
+        trackerView.leadingAnchor.constraint(equalTo: menuBackgroundView.leadingAnchor, constant: 20).isActive = true
+        trackerView.trailingAnchor.constraint(equalTo: menuBackgroundView.trailingAnchor, constant: 20).isActive = true
+        trackerView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        trackerView.widthAnchor.constraint(equalTo: menuBackgroundView.widthAnchor, constant: -40).isActive = true
     }
 
     func setUpBarChartView() {
@@ -217,5 +227,13 @@ extension DashboardViewController: DashboardPresenterOutput {
 extension DashboardViewController: CalendarViewOutput {
     func reloadData(forDate: Date) {
         calendarView.reloadData(forDate: forDate)
+    }
+}
+
+// MARK: - TrackerViewDelegate
+
+extension DashboardViewController: TrackerViewDelegate {
+    func proceedToAttackTracking() {
+        output.addButtonTapped()
     }
 }
