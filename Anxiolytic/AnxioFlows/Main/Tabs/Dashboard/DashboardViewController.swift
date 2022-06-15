@@ -18,6 +18,8 @@ protocol DashboardViewControllerOutput {
     /// - Parameter viewModel: The model representing the
     ///                    current state of the userinterface.
     func viewContentUpdated(with viewModel: DashboardViewModel)
+
+    func addButtonTapped()
 }
 
 /**
@@ -25,25 +27,45 @@ protocol DashboardViewControllerOutput {
   and gets a response back from the `DashboardPresenter`.
  */
 final class DashboardViewController: UIViewController {
-
     var output: DashboardViewControllerOutput!
 
     private lazy var calendarView = CalendarView()
+
+    private var headerView: UIView = {
+        let view = UIView(frame: CGRect())
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 15
+        view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        view.backgroundColor = Attributes.Colors.blueGrey
+        return view
+    }()
+
+    private let headerLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.text = "Anxiolytic"
+        label.font = .vmCircularYell50
+        label.textColor = Attributes.Colors.truewhite
+        return label
+    }()
+
+    private var menuBackgroundView: UIStackView = {
+        let view = UIStackView(frame: CGRect())
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 15
+        view.backgroundColor = Attributes.Colors.truewhite
+        view.axis = .vertical
+        view.spacing = 15
+        return view
+    }()
 
     private lazy var containerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = .fillEqually
-        stackView.spacing = 10
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 15
         return stackView
-    }()
-
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.addSubview(containerStackView)
-        scrollView.showsHorizontalScrollIndicator = false
-        return scrollView
     }()
 
     // MARK: - Initializers
@@ -73,39 +95,38 @@ final class DashboardViewController: UIViewController {
     }
 
     func setUpView() {
-        setUpScrollView()
+        setUpHeader()
         setUpTrackerView()
-        setUpCalendarView()
         setUpBarChartView()
+        setUpCalendarView()
     }
 
-    private func setUpScrollView() {
-        let view = UIView()
-        view.addSubview(scrollView)
-
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10.0).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10.0).isActive = true
-        scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10.0).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10.0).isActive = true
-
-        setUpStackView()
-        self.view = view
+    private func setUpHeader() {
+        view.backgroundColor = .white
+        view.backgroundColor = .white
+        view.addSubview(headerView)
+        view.addSubview(headerLabel)
+        view.addSubview(menuBackgroundView)
+        layoutUIElements()
     }
 
-    private func setUpStackView() {
-        containerStackView.translatesAutoresizingMaskIntoConstraints = false
-        containerStackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        containerStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        containerStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        containerStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        containerStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        containerStackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor).isActive = true
+    private func layoutUIElements() {
+        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height / 3)
+        headerLabel.frame = CGRect(x: 0, y: headerView.frame.height / 4, width: view.frame.size.width, height: headerView.frame.height / 4)
+        menuBackgroundView.frame = CGRect(x: 24, y: headerLabel.frame.maxY + 10, width: view.frame.size.width - 48, height: view.frame.size.height - 240)
     }
 
     private func setUpTrackerView() {
-        let attackTracker: UIView = UIView(frame: CGRect(x: 0, y: 20, width: view.bounds.width, height: 80))
-        containerStackView.addArrangedSubview(attackTracker)
+
+        let trackerView = TrackerView()
+        trackerView.delegate = self
+        menuBackgroundView.addArrangedSubview(trackerView)
+
+        trackerView.topAnchor.constraint(equalTo: menuBackgroundView.topAnchor, constant: 20).isActive = true
+        trackerView.leadingAnchor.constraint(equalTo: menuBackgroundView.leadingAnchor, constant: 20).isActive = true
+        trackerView.trailingAnchor.constraint(equalTo: menuBackgroundView.trailingAnchor, constant: 20).isActive = true
+        trackerView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        trackerView.widthAnchor.constraint(equalTo: menuBackgroundView.widthAnchor, constant: -40).isActive = true
     }
 
     func setUpBarChartView() {
@@ -121,15 +142,19 @@ final class DashboardViewController: UIViewController {
         let card = FLCard(chart: chart, style: .rounded)
         card.showAverage = false
         card.showLegend = true
-        let cardConfig = FLCardStyle(backgroundColor: Attributes.Colors.accentBlueGrey, textColor: .white, cornerRadius: 30)
+        let cardConfig = FLCardStyle(backgroundColor: Attributes.Colors.accentBlueGrey, textColor: .white, cornerRadius: 50)
 
         card.backgroundColor = Attributes.Colors.accentBlueGrey
         card.setup(chart: chart, style: cardConfig)
 
-        containerStackView.addArrangedSubview(card)
+        menuBackgroundView.addArrangedSubview(card)
 
         card.translatesAutoresizingMaskIntoConstraints = false
-        card.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        card.heightAnchor.constraint(equalToConstant: 200).isActive = true
+
+        let separatorView = UIView()
+        menuBackgroundView.addArrangedSubview(separatorView)
+        separatorView.heightAnchor.constraint(equalToConstant: 60).isActive = true
 
     }
 
@@ -159,14 +184,12 @@ final class DashboardViewController: UIViewController {
             ],
             unitOfMeasure: "Frequency"
         )
-
         return chartData
     }
 
     private func setUpCalendarView() {
-        containerStackView.addArrangedSubview(calendarView)
+        menuBackgroundView.addArrangedSubview(calendarView)
         calendarView.delegate = self
-        calendarView.heightAnchor.constraint(equalToConstant: 350).isActive = true
     }
 }
 
@@ -174,8 +197,7 @@ final class DashboardViewController: UIViewController {
 
 extension DashboardViewController: DashboardPresenterOutput {
 
-    // MARK: - Display logic
-
+    // MARK: - Displxay logic
     func update(with viewModel: DashboardViewModel) {
         view.backgroundColor = viewModel.backgroundColour
         calendarView.update(with: .init(days: viewModel.days, baseDate: viewModel.baseDate, numberOfWeeksInBaseDate: viewModel.numberOfWeeksInBaseDate))
@@ -189,5 +211,13 @@ extension DashboardViewController: DashboardPresenterOutput {
 extension DashboardViewController: CalendarViewOutput {
     func reloadData(forDate: Date) {
         calendarView.reloadData(forDate: forDate)
+    }
+}
+
+// MARK: - TrackerViewDelegate
+
+extension DashboardViewController: TrackerViewDelegate {
+    func proceedToAttackTracking() {
+        output.addButtonTapped()
     }
 }

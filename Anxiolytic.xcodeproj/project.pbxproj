@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A0046372847950100654CBE /* AddAttack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A00462F2847950100654CBE /* AddAttack.storyboard */; };
+		6A0046382847950100654CBE /* AddAttackPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0046302847950100654CBE /* AddAttackPresenter.swift */; };
+		6A0046392847950100654CBE /* AddAttackWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0046312847950100654CBE /* AddAttackWorker.swift */; };
+		6A00463A2847950100654CBE /* AddAttackRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0046322847950100654CBE /* AddAttackRouter.swift */; };
+		6A00463B2847950100654CBE /* AddAttackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0046332847950100654CBE /* AddAttackViewController.swift */; };
+		6A00463C2847950100654CBE /* AddAttackInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0046342847950100654CBE /* AddAttackInteractor.swift */; };
+		6A00463D2847950100654CBE /* AddAttackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0046352847950100654CBE /* AddAttackViewModel.swift */; };
+		6A00463E2847950100654CBE /* AddAttackConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0046362847950100654CBE /* AddAttackConfigurator.swift */; };
 		6A09E6452827EE3B00AB792C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A09E6442827EE3B00AB792C /* AppDelegate.swift */; };
 		6A09E6472827EE3B00AB792C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A09E6462827EE3B00AB792C /* SceneDelegate.swift */; };
 		6A09E6492827EE3B00AB792C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A09E6482827EE3B00AB792C /* ViewController.swift */; };
@@ -78,6 +86,15 @@
 		6AAF6F852843D5F200D536CD /* WelcomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAF6F7D2843D5F200D536CD /* WelcomeConfigurator.swift */; };
 		6AAF6F872843DA2500D536CD /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AAF6F862843DA2500D536CD /* LogIn.storyboard */; };
 		6AAF6F8D284628FC00D536CD /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6AAF6F8C284628FC00D536CD /* swiftlint.yml */; };
+		6ADD7E612858CFDA002CCCDD /* TrackerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ADD7E602858CFDA002CCCDD /* TrackerView.xib */; };
+		6ADD7E632858D1EE002CCCDD /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADD7E622858D1EE002CCCDD /* TrackerView.swift */; };
+		6ADD7E662858D2E4002CCCDD /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADD7E652858D2E4002CCCDD /* ReuseIdentifiable.swift */; };
+		6ADD7E682858D305002CCCDD /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADD7E672858D305002CCCDD /* NibLoadable.swift */; };
+		6ADD7E6B2858E6F5002CCCDD /* QuestionCheckUpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ADD7E6A2858E6F5002CCCDD /* QuestionCheckUpCell.xib */; };
+		6ADD7E6D2858E701002CCCDD /* QuestionCheckUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADD7E6C2858E701002CCCDD /* QuestionCheckUpCell.swift */; };
+		6ADD7E6F2858EAAE002CCCDD /* AnxioCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADD7E6E2858EAAE002CCCDD /* AnxioCheckBox.swift */; };
+		6ADD7E712858ECFD002CCCDD /* UItableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADD7E702858ECFD002CCCDD /* UItableView+Register.swift */; };
+		6ADD7E732858EFDF002CCCDD /* UITableView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADD7E722858EFDF002CCCDD /* UITableView+Dequeue.swift */; };
 		6AF50C122829245F004CAE88 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF50C0A2829245F004CAE88 /* CalendarView.swift */; };
 		6AF50C142829245F004CAE88 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF50C0C2829245F004CAE88 /* CalendarViewModel.swift */; };
 		6AF50C172829273E004CAE88 /* CalendarFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF50C162829273E004CAE88 /* CalendarFooterView.swift */; };
@@ -86,12 +103,18 @@
 		6AF50C352829592A004CAE88 /* CalendarBodyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF50C342829592A004CAE88 /* CalendarBodyCollectionView.swift */; };
 		6AF50C37282966D7004CAE88 /* CallendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF50C36282966D7004CAE88 /* CallendarCollectionViewCell.swift */; };
 		6AFCCABD283CFF1B0079DA51 /* FLCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6AFCCABC283CFF1B0079DA51 /* FLCharts */; };
-		6AFCCAC0283D1DCB0079DA51 /* TrackerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFCCABF283D1DCB0079DA51 /* TrackerView.xib */; };
-		6AFCCAC2283D1DD60079DA51 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCCAC1283D1DD60079DA51 /* TrackerView.swift */; };
 		6AFCCAC4283D2E5E0079DA51 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCCAC3283D2E5E0079DA51 /* BarChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A00462F2847950100654CBE /* AddAttack.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAttack.storyboard; sourceTree = "<group>"; };
+		6A0046302847950100654CBE /* AddAttackPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAttackPresenter.swift; sourceTree = "<group>"; };
+		6A0046312847950100654CBE /* AddAttackWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAttackWorker.swift; sourceTree = "<group>"; };
+		6A0046322847950100654CBE /* AddAttackRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAttackRouter.swift; sourceTree = "<group>"; };
+		6A0046332847950100654CBE /* AddAttackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAttackViewController.swift; sourceTree = "<group>"; };
+		6A0046342847950100654CBE /* AddAttackInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAttackInteractor.swift; sourceTree = "<group>"; };
+		6A0046352847950100654CBE /* AddAttackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAttackViewModel.swift; sourceTree = "<group>"; };
+		6A0046362847950100654CBE /* AddAttackConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAttackConfigurator.swift; sourceTree = "<group>"; };
 		6A09E6412827EE3B00AB792C /* Anxiolytic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anxiolytic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A09E6442827EE3B00AB792C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A09E6462827EE3B00AB792C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +185,15 @@
 		6AAF6F7D2843D5F200D536CD /* WelcomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeConfigurator.swift; sourceTree = "<group>"; };
 		6AAF6F862843DA2500D536CD /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		6AAF6F8C284628FC00D536CD /* swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
+		6ADD7E602858CFDA002CCCDD /* TrackerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackerView.xib; sourceTree = "<group>"; };
+		6ADD7E622858D1EE002CCCDD /* TrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerView.swift; sourceTree = "<group>"; };
+		6ADD7E652858D2E4002CCCDD /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
+		6ADD7E672858D305002CCCDD /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		6ADD7E6A2858E6F5002CCCDD /* QuestionCheckUpCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCheckUpCell.xib; sourceTree = "<group>"; };
+		6ADD7E6C2858E701002CCCDD /* QuestionCheckUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCheckUpCell.swift; sourceTree = "<group>"; };
+		6ADD7E6E2858EAAE002CCCDD /* AnxioCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnxioCheckBox.swift; sourceTree = "<group>"; };
+		6ADD7E702858ECFD002CCCDD /* UItableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UItableView+Register.swift"; sourceTree = "<group>"; };
+		6ADD7E722858EFDF002CCCDD /* UITableView+Dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeue.swift"; sourceTree = "<group>"; };
 		6AF50C0A2829245F004CAE88 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		6AF50C0C2829245F004CAE88 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		6AF50C162829273E004CAE88 /* CalendarFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFooterView.swift; sourceTree = "<group>"; };
@@ -172,8 +204,6 @@
 		6AF50C342829592A004CAE88 /* CalendarBodyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBodyCollectionView.swift; sourceTree = "<group>"; };
 		6AF50C36282966D7004CAE88 /* CallendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		6AFCCAB8283CFAA20079DA51 /* VMCircularYell-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VMCircularYell-Black.otf"; sourceTree = "<group>"; };
-		6AFCCABF283D1DCB0079DA51 /* TrackerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackerView.xib; sourceTree = "<group>"; };
-		6AFCCAC1283D1DD60079DA51 /* TrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerView.swift; sourceTree = "<group>"; };
 		6AFCCAC3283D2E5E0079DA51 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +220,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A00462E2847948C00654CBE /* AddAttack */ = {
+			isa = PBXGroup;
+			children = (
+				6ADD7E692858E6D0002CCCDD /* QuestionCheckUpCell */,
+				6A00462F2847950100654CBE /* AddAttack.storyboard */,
+				6A0046302847950100654CBE /* AddAttackPresenter.swift */,
+				6A0046312847950100654CBE /* AddAttackWorker.swift */,
+				6A0046322847950100654CBE /* AddAttackRouter.swift */,
+				6A0046332847950100654CBE /* AddAttackViewController.swift */,
+				6A0046342847950100654CBE /* AddAttackInteractor.swift */,
+				6A0046352847950100654CBE /* AddAttackViewModel.swift */,
+				6A0046362847950100654CBE /* AddAttackConfigurator.swift */,
+			);
+			path = AddAttack;
+			sourceTree = "<group>";
+		};
+		6A00463F284795BF00654CBE /* SubTabs */ = {
+			isa = PBXGroup;
+			children = (
+				6A00462E2847948C00654CBE /* AddAttack */,
+			);
+			path = SubTabs;
+			sourceTree = "<group>";
+		};
 		6A09E6382827EE3B00AB792C = {
 			isa = PBXGroup;
 			children = (
@@ -228,13 +282,10 @@
 		6A09E6592827F41D00AB792C /* AnxioStyling */ = {
 			isa = PBXGroup;
 			children = (
-				6AAF6F8B2846286200D536CD /* New Group */,
-				6AF50C2928292EFB004CAE88 /* Lato-Bold.ttf */,
-				6AF50C2A28292EFB004CAE88 /* Lato-Regular.ttf */,
-				6AAF6F712843C55800D536CD /* VMCircularChat-Book.otf */,
-				6AFCCAB8283CFAA20079DA51 /* VMCircularYell-Black.otf */,
+				6AAF6F8B2846286200D536CD /* fonts */,
 				6A09E6C12828018700AB792C /* Attributes.swift */,
 				6AAF6F722843D29D00D536CD /* AnxioTextField.swift */,
+				6ADD7E6E2858EAAE002CCCDD /* AnxioCheckBox.swift */,
 			);
 			path = AnxioStyling;
 			sourceTree = "<group>";
@@ -253,6 +304,7 @@
 			children = (
 				6A09E6652827F72400AB792C /* TabBar */,
 				6A09E6642827F72000AB792C /* Tabs */,
+				6A00463F284795BF00654CBE /* SubTabs */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -285,7 +337,7 @@
 		6A09E68E2827F8D000AB792C /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				6AFCCABE283D1DB80079DA51 /* Tracker */,
+				6ADD7E5F2858CFC7002CCCDD /* TrackerView */,
 				6AF50BF928292045004CAE88 /* Calendar */,
 				6AFCCABA283CFD170079DA51 /* BarChart */,
 				6A09E68F2827F8E200AB792C /* Dashboard.storyboard */,
@@ -385,11 +437,42 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
-		6AAF6F8B2846286200D536CD /* New Group */ = {
+		6AAF6F8B2846286200D536CD /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				6AF50C2928292EFB004CAE88 /* Lato-Bold.ttf */,
+				6AF50C2A28292EFB004CAE88 /* Lato-Regular.ttf */,
+				6AAF6F712843C55800D536CD /* VMCircularChat-Book.otf */,
+				6AFCCAB8283CFAA20079DA51 /* VMCircularYell-Black.otf */,
 			);
-			path = "New Group";
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		6ADD7E5F2858CFC7002CCCDD /* TrackerView */ = {
+			isa = PBXGroup;
+			children = (
+				6ADD7E602858CFDA002CCCDD /* TrackerView.xib */,
+				6ADD7E622858D1EE002CCCDD /* TrackerView.swift */,
+			);
+			path = TrackerView;
+			sourceTree = "<group>";
+		};
+		6ADD7E642858D2CA002CCCDD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6ADD7E652858D2E4002CCCDD /* ReuseIdentifiable.swift */,
+				6ADD7E672858D305002CCCDD /* NibLoadable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		6ADD7E692858E6D0002CCCDD /* QuestionCheckUpCell */ = {
+			isa = PBXGroup;
+			children = (
+				6ADD7E6A2858E6F5002CCCDD /* QuestionCheckUpCell.xib */,
+				6ADD7E6C2858E701002CCCDD /* QuestionCheckUpCell.swift */,
+			);
+			path = QuestionCheckUpCell;
 			sourceTree = "<group>";
 		};
 		6AF50BF928292045004CAE88 /* Calendar */ = {
@@ -405,6 +488,7 @@
 		6AF50C2C28294124004CAE88 /* AnxioData */ = {
 			isa = PBXGroup;
 			children = (
+				6ADD7E642858D2CA002CCCDD /* Protocols */,
 				6AF50C2D28294143004CAE88 /* Extensions */,
 			);
 			path = AnxioData;
@@ -415,6 +499,8 @@
 			children = (
 				6AF50C2E28294155004CAE88 /* UIView+fromNib.swift */,
 				6AAF6F6A2843C2F300D536CD /* UIFont.swift */,
+				6ADD7E702858ECFD002CCCDD /* UItableView+Register.swift */,
+				6ADD7E722858EFDF002CCCDD /* UITableView+Dequeue.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -436,15 +522,6 @@
 				6AFCCAC3283D2E5E0079DA51 /* BarChartView.swift */,
 			);
 			path = BarChart;
-			sourceTree = "<group>";
-		};
-		6AFCCABE283D1DB80079DA51 /* Tracker */ = {
-			isa = PBXGroup;
-			children = (
-				6AFCCABF283D1DCB0079DA51 /* TrackerView.xib */,
-				6AFCCAC1283D1DD60079DA51 /* TrackerView.swift */,
-			);
-			path = Tracker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,13 +599,15 @@
 				6AAF6F872843DA2500D536CD /* LogIn.storyboard in Resources */,
 				6A09E6CD28280B6300AB792C /* Tools.storyboard in Resources */,
 				6AAF6F6E2843C42B00D536CD /* Lato-Bold.ttf in Resources */,
+				6ADD7E612858CFDA002CCCDD /* TrackerView.xib in Resources */,
 				6A09E6972827F8E200AB792C /* Dashboard.storyboard in Resources */,
 				6AAF6F702843C42F00D536CD /* VMCircularYell-Black.otf in Resources */,
-				6AFCCAC0283D1DCB0079DA51 /* TrackerView.xib in Resources */,
 				6A09E64E2827EE3D00AB792C /* Assets.xcassets in Resources */,
 				6A09E6DD28280B7A00AB792C /* Settings.storyboard in Resources */,
 				6AAF6F6F2843C42D00D536CD /* Lato-Regular.ttf in Resources */,
 				6AAF6F5E2843B93400D536CD /* Register.storyboard in Resources */,
+				6ADD7E6B2858E6F5002CCCDD /* QuestionCheckUpCell.xib in Resources */,
+				6A0046372847950100654CBE /* AddAttack.storyboard in Resources */,
 				6AAF6F7E2843D5F200D536CD /* Welcome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,10 +642,12 @@
 				6AAF6F822843D5F200D536CD /* WelcomeViewController.swift in Sources */,
 				6A09E6492827EE3B00AB792C /* ViewController.swift in Sources */,
 				6A09E69B2827F8E200AB792C /* DashboardViewController.swift in Sources */,
+				6A00463A2847950100654CBE /* AddAttackRouter.swift in Sources */,
+				6A00463B2847950100654CBE /* AddAttackViewController.swift in Sources */,
+				6ADD7E632858D1EE002CCCDD /* TrackerView.swift in Sources */,
 				6AAF6F402843A90C00D536CD /* LogInRouter.swift in Sources */,
 				6AAF6F812843D5F200D536CD /* WelcomeRouter.swift in Sources */,
 				6A09E69A2827F8E200AB792C /* DashboardRouter.swift in Sources */,
-				6AFCCAC2283D1DD60079DA51 /* TrackerView.swift in Sources */,
 				6A09E69D2827F8E200AB792C /* DashboardViewModel.swift in Sources */,
 				6A09E6BB2827F90A00AB792C /* TabBarViewController.swift in Sources */,
 				6A09E6D228280B6300AB792C /* ToolsInteractor.swift in Sources */,
@@ -580,7 +661,10 @@
 				6AAF6F612843B93400D536CD /* RegisterRouter.swift in Sources */,
 				6A09E6D028280B6300AB792C /* ToolsRouter.swift in Sources */,
 				6AFCCAC4283D2E5E0079DA51 /* BarChartView.swift in Sources */,
+				6ADD7E662858D2E4002CCCDD /* ReuseIdentifiable.swift in Sources */,
 				6AF50C352829592A004CAE88 /* CalendarBodyCollectionView.swift in Sources */,
+				6A0046392847950100654CBE /* AddAttackWorker.swift in Sources */,
+				6ADD7E732858EFDF002CCCDD /* UITableView+Dequeue.swift in Sources */,
 				6A09E6452827EE3B00AB792C /* AppDelegate.swift in Sources */,
 				6A09E6BD2827F90A00AB792C /* TabBarViewModel.swift in Sources */,
 				6A09E6992827F8E200AB792C /* DashboardWorker.swift in Sources */,
@@ -591,9 +675,11 @@
 				6AF50C172829273E004CAE88 /* CalendarFooterView.swift in Sources */,
 				6AAF6F422843A90C00D536CD /* LogInInteractor.swift in Sources */,
 				6A09E6472827EE3B00AB792C /* SceneDelegate.swift in Sources */,
+				6ADD7E6D2858E701002CCCDD /* QuestionCheckUpCell.swift in Sources */,
 				6A09E6E028280B7A00AB792C /* SettingsRouter.swift in Sources */,
 				6A09E6E328280B7A00AB792C /* SettingsViewModel.swift in Sources */,
 				6A09E6D428280B6300AB792C /* ToolsConfigurator.swift in Sources */,
+				6ADD7E682858D305002CCCDD /* NibLoadable.swift in Sources */,
 				6AAF6F432843A90C00D536CD /* LogInViewModel.swift in Sources */,
 				6AAF6F732843D29D00D536CD /* AnxioTextField.swift in Sources */,
 				6A09E69E2827F8E200AB792C /* DashboardConfigurator.swift in Sources */,
@@ -603,12 +689,16 @@
 				6AAF6F802843D5F200D536CD /* WelcomeWorker.swift in Sources */,
 				6AAF6F632843B93400D536CD /* RegisterInteractor.swift in Sources */,
 				6AF50C1B28292D3D004CAE88 /* CalendarHeaderView.swift in Sources */,
+				6A0046382847950100654CBE /* AddAttackPresenter.swift in Sources */,
 				6AAF6F602843B93400D536CD /* RegisterWorker.swift in Sources */,
+				6A00463D2847950100654CBE /* AddAttackViewModel.swift in Sources */,
 				6AF50C122829245F004CAE88 /* CalendarView.swift in Sources */,
 				6A09E6E228280B7A00AB792C /* SettingsInteractor.swift in Sources */,
+				6A00463E2847950100654CBE /* AddAttackConfigurator.swift in Sources */,
 				6A09E6E428280B7A00AB792C /* SettingsConfigurator.swift in Sources */,
 				6AAF6F3F2843A90C00D536CD /* LogInWorker.swift in Sources */,
 				6A09E6E128280B7A00AB792C /* SettingsViewController.swift in Sources */,
+				6ADD7E6F2858EAAE002CCCDD /* AnxioCheckBox.swift in Sources */,
 				6AAF6F642843B93400D536CD /* RegisterViewModel.swift in Sources */,
 				6A09E6D328280B6300AB792C /* ToolsViewModel.swift in Sources */,
 				6AAF6F852843D5F200D536CD /* WelcomeConfigurator.swift in Sources */,
@@ -619,10 +709,12 @@
 				6A09E6C22828018700AB792C /* Attributes.swift in Sources */,
 				6AAF6F3E2843A90C00D536CD /* LogInPresenter.swift in Sources */,
 				6A09E6CE28280B6300AB792C /* ToolsPresenter.swift in Sources */,
+				6A00463C2847950100654CBE /* AddAttackInteractor.swift in Sources */,
 				6A09E6DF28280B7A00AB792C /* SettingsWorker.swift in Sources */,
 				6AAF6F6B2843C2F300D536CD /* UIFont.swift in Sources */,
 				6AAF6F442843A90C00D536CD /* LogInConfigurator.swift in Sources */,
 				6AAF6F652843B93400D536CD /* RegisterConfigurator.swift in Sources */,
+				6ADD7E712858ECFD002CCCDD /* UItableView+Register.swift in Sources */,
 				6A09E6B92827F90A00AB792C /* TabBarWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

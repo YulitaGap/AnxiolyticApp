@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="VMCircularYell-Black.otf">
+            <string>VMCircularYell-Black</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="QuestionCheckUpCell" customModule="Anxiolytic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="XdM-iF-2ob">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xb2-5L-8h7">
+                            <rect key="frame" x="0.0" y="0.0" width="70" height="105"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cB-2x-LAJ">
+                                    <rect key="frame" x="10" y="32.5" width="50" height="40"/>
+                                    <color key="backgroundColor" name="accentBlueGrey"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="Ova-wB-81i"/>
+                                        <constraint firstAttribute="height" constant="40" id="Qxt-nd-Q5b"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa4-Yu-9Ca" customClass="CheckBox" customModule="Anxiolytic" customModuleProvider="target">
+                                    <rect key="frame" x="25" y="41.5" width="20" height="22"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="checkmark.circle" catalog="system"/>
+                                    <connections>
+                                        <action selector="didAnswered:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZWX-ca-egi"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="Xa4-Yu-9Ca" firstAttribute="centerY" secondItem="4cB-2x-LAJ" secondAttribute="centerY" id="IEp-lM-0DN"/>
+                                <constraint firstAttribute="width" constant="70" id="Ou3-3R-MPU"/>
+                                <constraint firstItem="Xa4-Yu-9Ca" firstAttribute="centerX" secondItem="4cB-2x-LAJ" secondAttribute="centerX" id="boc-IQ-uD6"/>
+                                <constraint firstItem="4cB-2x-LAJ" firstAttribute="centerY" secondItem="xb2-5L-8h7" secondAttribute="centerY" id="oCM-vp-wVd"/>
+                                <constraint firstItem="4cB-2x-LAJ" firstAttribute="centerX" secondItem="xb2-5L-8h7" secondAttribute="centerX" id="tfC-r4-pqf"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C79-vt-Uf4">
+                            <rect key="frame" x="70" y="0.0" width="344" height="105"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My heart feels really fast" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydJ-cw-sxj">
+                                    <rect key="frame" x="0.0" y="10" width="344" height="85"/>
+                                    <fontDescription key="fontDescription" name="VMCircularYell-Black" family="VM Circular Yell" pointSize="16"/>
+                                    <color key="textColor" name="accentBlueGrey"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="ydJ-cw-sxj" firstAttribute="centerY" secondItem="C79-vt-Uf4" secondAttribute="centerY" id="0Xb-EC-C2I"/>
+                                <constraint firstItem="ydJ-cw-sxj" firstAttribute="top" secondItem="C79-vt-Uf4" secondAttribute="top" constant="10" id="1mk-77-ViR"/>
+                                <constraint firstAttribute="trailing" secondItem="ydJ-cw-sxj" secondAttribute="trailing" id="AgH-Df-9eA"/>
+                                <constraint firstAttribute="bottom" secondItem="ydJ-cw-sxj" secondAttribute="bottom" constant="10" id="OpU-E8-ird"/>
+                                <constraint firstItem="ydJ-cw-sxj" firstAttribute="centerX" secondItem="C79-vt-Uf4" secondAttribute="centerX" id="Oqs-q9-BNa"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="xb2-5L-8h7" firstAttribute="top" secondItem="XdM-iF-2ob" secondAttribute="top" id="7EY-VF-eUZ"/>
+                        <constraint firstAttribute="trailing" secondItem="C79-vt-Uf4" secondAttribute="trailing" id="BF7-P8-mDp"/>
+                        <constraint firstItem="C79-vt-Uf4" firstAttribute="top" secondItem="XdM-iF-2ob" secondAttribute="top" id="Dcc-k0-ZJV"/>
+                        <constraint firstAttribute="bottom" secondItem="xb2-5L-8h7" secondAttribute="bottom" id="IBx-BG-yX3"/>
+                        <constraint firstAttribute="bottom" secondItem="C79-vt-Uf4" secondAttribute="bottom" id="KWf-VI-82E"/>
+                        <constraint firstItem="C79-vt-Uf4" firstAttribute="leading" secondItem="xb2-5L-8h7" secondAttribute="trailing" id="Sfb-5r-VEx"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="XdM-iF-2ob" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0bf-2J-Pgk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="XdM-iF-2ob" secondAttribute="bottom" id="Pe9-mj-gkx"/>
+                <constraint firstItem="XdM-iF-2ob" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="T7m-J2-Eb2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XdM-iF-2ob" secondAttribute="trailing" id="eGG-db-SvL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="questionCheckBoxView" destination="4cB-2x-LAJ" id="Ucb-DI-orp"/>
+                <outlet property="questionCheckbox" destination="Xa4-Yu-9Ca" id="XL5-Ap-Ts5"/>
+                <outlet property="questionLabel" destination="ydJ-cw-sxj" id="SrQ-xm-k7F"/>
+            </connections>
+            <point key="canvasLocation" x="112" y="282"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="accentBlueGrey">
+            <color red="0.55294117647058827" green="0.62745098039215685" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
